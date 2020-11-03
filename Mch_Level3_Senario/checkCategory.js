@@ -11,10 +11,14 @@ const {
 } = require('appium-flutter-finder');
 const expect = require('chai').expect;
   
-const seeMainLevel3 = function(opts) {
-    describe('Check Category', function () {
+const test = function(opts) {
+    describe('Check Category Level3', function () {
 
-        before(async function () {
+        before(function () {
+            skip = false;
+        });
+
+        it('Initial Check Category Level3', async function () {
             this.timeout(50000 * 10000);
             driver = await wdio.remote(opts);
 
@@ -105,49 +109,7 @@ const seeMainLevel3 = function(opts) {
     });
 };
 
-const searchBar = function (opts) {
-    describe('Search bar in level 3', function (){
-        before(async function () {
-            this.timeout(50000 * 10000);
-            driver = await wdio.remote(opts);    
-
-            usernameField = byValueKey('usernameTxt');
-            passwordField = byValueKey('passwordTxt');
-            loginButton = byValueKey('loginBtn');
-            await driver.elementSendKeys(usernameField, "551503");
-            await driver.elementSendKeys(passwordField, "551505");
-            await driver.elementClick(loginButton);
-            await driver.execute('flutter:waitForAbsent', loginButton);
-        });
-
-        it('Can search by brand, article_no, name', async function () {
-            this.timeout(30 * 1000);
-            searchIcon = byValueKey('searchIcon');
-            await driver.elementClick(searchIcon);
-            await driver.execute('flutter:waitForAbsent', searchIcon);
-            await driver.touchAction({
-                action: 'tap',
-                element: { elementId: byType('TextField') }
-            });
-            await driver2.pressKeycode(9);
-            await driver2.pressKeycode(12);
-            await driver2.pressKeycode(12);
-            await driver2.pressKeycode(9);
-            await driver2.pressKeycode(12);
-            await driver2.pressKeycode(12);
-            // await driver.execute('flutter:enterText', '255255');
-            // await driver.elementSendKeys(byType('TextField'), '255255');
-            // await driver.execute('flutter:sendKeyEvent', 66, { platForm: 'android' });
-            await driver.execute('flutter:waitForAbsent', byType('TextField'));
-        });
-
-        after(function () {
-            driver.quit();
-        });
-    })
-}
 
 module.exports = {
-    seeMainLevel3,
-    searchBar
+    test
 }
