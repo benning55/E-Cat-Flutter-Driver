@@ -13,7 +13,20 @@ const electricTest = function (opts) {
 
     describe('เครื่องใช้ไฟฟ้า', function () {
 
-        before(async function () {
+        before(function () {
+            skip = false;
+        });
+
+        // afterEach(async function () {
+        //     if (this.currentTest.state == 'failed') {
+        //         var imgName = (this.currentTest.parent.title).replace(/ /g, "_");
+        //         var screenshotPath = 'C:\\Users\\bmais\\Documents\\SeniorHomepro\\E-Cat-Flutter_Driver\\images\\mch2\\';
+        //         await driver.saveScreenshot(screenshotPath + imgName + '.png');
+        //         skip = true;
+        //     }
+        // });
+
+        it('Start Application', async function () {
             this.timeout(50000 * 10000);
             driver = await wdio.remote(opts);
 
@@ -791,7 +804,15 @@ const electricTest = function (opts) {
             }
         });
 
-        after(async function () {
+    });
+
+    describe('กลับไปหน้าหลัก', function(){
+
+        before(function () {
+            skip = false;
+        });
+
+        it('ไปหน้าหลัก', async function () {
             backBtn = byValueKey('backIcon');
             await driver.touchAction({
                 action: 'tap',

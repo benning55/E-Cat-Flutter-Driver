@@ -12,18 +12,12 @@ const furnitureTest = function (opts) {
 
     describe('เฟอร์นิเจอร์และของตกแต่งบ้าน', function () {
 
-        before(async function () {
+        before(function () {
+            skip = false;
+        });
+        
+        it('กดเข้าหมวดเฟอร์นิเจอร์และของตกแต่ง', async function () {
             this.timeout(50000 * 10000);
-            // driver = await wdio.remote(opts);
-
-            // usernameField = byValueKey('usernameTxt');
-            // passwordField = byValueKey('passwordTxt');
-            // loginButton = byValueKey('loginBtn');
-
-            // await driver.elementSendKeys(usernameField, "551503");
-            // await driver.elementSendKeys(passwordField, "551504");
-            // await driver.elementClick(loginButton);
-            // await driver.execute('flutter:waitForAbsent', loginButton);
             await driver.elementClick(byValueKey('catThree7'));
         });
 
@@ -645,8 +639,15 @@ const furnitureTest = function (opts) {
                 }
             }
         });
+    });
 
-        after(async function () {
+    describe('กลับไปหน้าหลัก', function(){
+
+        before(function () {
+            skip = false;
+        });
+        
+        it('ไปหน้าหลัก', async function () {
             backBtn = byValueKey('backIcon');
             await driver.touchAction({
                 action: 'tap',
@@ -655,7 +656,6 @@ const furnitureTest = function (opts) {
                 }
             });
         });
-
     });
 }
 

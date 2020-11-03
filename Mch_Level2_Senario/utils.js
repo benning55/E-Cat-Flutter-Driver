@@ -10,7 +10,11 @@ const expect = require('chai').expect;
 const Format2Mch1Test = function (opts, txt, amount, cat3) {
     describe(txt, function () {
 
-        before(async function () {
+        before(function () {
+            skip = false;
+        });
+
+        before(`initial ${txt}`, async function () {
             this.timeout(50000 * 10000);
             if (cat3 == 0) {
                 driver = await wdio.remote(opts);

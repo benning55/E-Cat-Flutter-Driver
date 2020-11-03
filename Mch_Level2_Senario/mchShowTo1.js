@@ -15,26 +15,7 @@ const sport = require('./sport');
 const handtool = require('./handtool');
 const tv = require('./tv');
 
-const testMch2Cat = function(opts){
-    electric.electricTest(opts);
-    bathroom.bathroomTest(opts);
-    bedroom.bedroomTest(opts);
-    material.materialTest(opts)
-    doorwindow.doorwindowTest(opts);
-    electricSystem.electricsystemTest(opts);
-    backgroundMaterial.backgroundMaterialTest(opts);
-    furniture.furnitureTest(opts);
-    indoor.indoorTest(opts);
-    kitchen.kitchenTest(opts);
-    lamp.lampTest(opts);
-    garden.gardenTest(opts)
-    plumbing.plumbingTest(opts);
-    sport.sportTest(opts);
-    handtool.handToolTest(opts);
-    tv.tvTest(opts)
-};
-
-const testMch2ToMch1 = function(opts){
+const test = function(opts){
     electric.electric2Mch1Test(opts);
     bathroom.bathroom2Mch1Test(opts);
     bedroom.bedroom2Mch1Test(opts);
@@ -54,6 +35,5 @@ const testMch2ToMch1 = function(opts){
 }
 
 module.exports = {
-    testMch2Cat,
-    testMch2ToMch1
+    test
 }

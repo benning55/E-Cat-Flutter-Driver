@@ -12,18 +12,12 @@ const electricsystemTest = function (opts) {
 
     describe('งานระบบไฟฟ้า', function () {
 
-        before(async function () {
-            // this.timeout(50000 * 10000);
-            // driver = await wdio.remote(opts);
+        before(function () {
+            skip = false;
+        });
 
-            // usernameField = byValueKey('usernameTxt');
-            // passwordField = byValueKey('passwordTxt');
-            // loginButton = byValueKey('loginBtn');
-
-            // await driver.elementSendKeys(usernameField, "551503");
-            // await driver.elementSendKeys(passwordField, "551504");
-            // await driver.elementClick(loginButton);
-            // await driver.execute('flutter:waitForAbsent', loginButton);
+        it('กดเข้าหมวดงานระบบไฟฟ้า', async function () {
+            this.timeout(50000 * 10000);
             await driver.elementClick(byValueKey('catThree5'));
         });
 
@@ -557,8 +551,15 @@ const electricsystemTest = function (opts) {
                 }
             }
         });
+    });
 
-        after(async function () {
+    describe('กลับไปหน้าหลัก', function(){
+
+        before(function () {
+            skip = false;
+        });
+        
+        it('ไปหน้าหลัก', async function () {
             backBtn = byValueKey('backIcon');
             await driver.touchAction({
                 action: 'tap',
@@ -567,7 +568,6 @@ const electricsystemTest = function (opts) {
                 }
             });
         });
-
     });
 }
 
