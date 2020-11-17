@@ -20,5 +20,15 @@
     "wd": "^1.13.0",
     "wd-android": "^0.1.1",
     "webdriverio": "^6.4.2"
-  }
+  },
+  "bundledDependencies": [
+    "@wdio/cli",
+    "appium",
+    "appium-flutter-finder",
+    "chai",
+    "mocha",
+    "wd",
+    "wd-android",
+    "webdriverio"
+  ]
 }

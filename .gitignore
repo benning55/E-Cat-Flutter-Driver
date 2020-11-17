@@ -2,9 +2,11 @@
 node_modules
 /dist
 /node_modules
+flutter_driver_test-1.0.0.tgz
 # local env files
 .env.local
 .env.*.local
+test.zip
 
 # Editor directories and files
 .idea

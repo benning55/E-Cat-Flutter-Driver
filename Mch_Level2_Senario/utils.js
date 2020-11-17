@@ -34,7 +34,7 @@ const Format2Mch1Test = function (opts, txt, amount, cat3) {
             await driver.elementClick(byValueKey('catThree' + cat3.toString()));
         });
 
-        it('ปุ่มดูทั้งหมด (เครื่องใช้ไฟฟ้า) ', async function () {
+        it('ปุ่มดูทั้งหมด', async function () {
             this.timeout(300 * 1000);
             var i;
             for (i = 0; i < amount; i++) {

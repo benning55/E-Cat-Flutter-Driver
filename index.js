@@ -33,17 +33,19 @@ beforeEach(function () {
 afterEach(async function () {
     if (this.currentTest.state == 'failed') {
         var imgName = (this.currentTest.parent.title).replace(/ /g, "_");
-        var screenshotPath = 'C:\\Users\\bmais\\Documents\\SeniorHomepro\\E-Cat-Flutter_Driver\\images\\';
-        await driver.saveScreenshot(screenshotPath + imgName + '.png');
+        // var screenshotPath = 'C:\\Users\\bmais\\Documents\\SeniorHomepro\\E-Cat-Flutter_Driver\\images\\mch1\\';
+        var screenshotPath = process.env.DEVICEFARM_LOG_DIR;
+        console.log(screenshotPath + imgName + '.png');
+        await driver.saveScreenshot(screenshotPath + "/" + imgName + '.png');
         skip = true;
     }
-});
+})
 
 
 // ทดสอบกับ Appium Flutter Driver 
-// MchPriceOrder.test(opts);
-// MchFilter.test(opts);
-// MchCompare.test(opts);
-// MchOrderLevel2.test(opts);
-// MchShowToLevel1.test(opts);
+MchPriceOrder.test(opts);
+MchFilter.test(opts);
+MchCompare.test(opts);
+MchOrderLevel2.test(opts);
+MchShowToLevel1.test(opts);
 MchLevel3.test(opts);

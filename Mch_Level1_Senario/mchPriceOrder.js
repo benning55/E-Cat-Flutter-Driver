@@ -18,15 +18,15 @@ const test = function (opts) {
             skip = false;
         });
 
-        afterEach(async function () {
-            if (this.currentTest.state == 'failed') {
-                var imgName = (this.currentTest.parent.title).replace(/ /g, "_");
-                var screenshotPath = 'C:\\Users\\bmais\\Documents\\SeniorHomepro\\E-Cat-Flutter_Driver\\images\\mch1\\';
-                console.log(screenshotPath+imgName+'.png');
-                await driver.saveScreenshot(screenshotPath + imgName + '.png');
-                skip = true;
-            }
-        });
+        // afterEach(async function () {
+        //     if (this.currentTest.state == 'failed') {
+        //         var imgName = (this.currentTest.parent.title).replace(/ /g, "_");
+        //         var screenshotPath = 'C:\\Users\\bmais\\Documents\\SeniorHomepro\\E-Cat-Flutter_Driver\\images\\mch1\\';
+        //         console.log(screenshotPath+imgName+'.png');
+        //         await driver.saveScreenshot(screenshotPath + imgName + '.png');
+        //         skip = true;
+        //     }
+        // });
 
         describe('เช็คเรียงราคา Default', function(){
             
